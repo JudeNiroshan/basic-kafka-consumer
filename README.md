@@ -1,6 +1,6 @@
 # Basic Apache Kafka Consumer
 
-<img alt="apache kafka logo" src="kafka_logo.png" title="Apache Kafka" width="400"/>
+![apache kafka logo](kafka_logo.png "Apache Kafka")
 
 Kafka consumer that can utilize a schema registry. Please ensure the correct broker, schema registry connection 
 details are configured properly in the ``src/main/resources/application.yaml``
