@@ -2,7 +2,7 @@
 
 <img alt="apache kafka logo" src="./kafka_logo.png" title="Apache Kafka" width="400" align="right"/>
 
-Kafka consumer that can utilize a schema registry. Please ensure the correct broker, schema registry connection 
+Kafka consumer that can utilize a **schema registry**. Please ensure the correct broker, schema registry connection 
 details are configured properly in the ``src/main/resources/application.yaml``
 
 ## Deploy in Kubernetes
