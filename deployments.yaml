@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kafka-account-consumers
+  name: kafka-account-consumers
+  namespace: data-services-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kafka-account-consumers
+  template:
+    metadata:
+      labels:
+        app: kafka-account-consumers
+    spec:
+      containers:
+      - image: quay.io/jnirosha/kafka-consumer
+        name: kafka-consumer
+        env:
+          - name: TOPIC
+            value: "test-client-tier-account"
+          - name: GROUP_ID
+            value: "account-group"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: kafka-transac-consumers
+  name: kafka-transac-consumers
+  namespace: data-services-lab
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kafka-transac-consumers
+  template:
+    metadata:
+      labels:
+        app: kafka-transac-consumers
+    spec:
+      containers:
+      - image: quay.io/jnirosha/kafka-consumer
+        name: kafka-consumer
+        env:
+          - name: TOPIC
+            value: "test-client-tier-transaction-list"
+          - name: GROUP_ID
+            value: "transac-group"

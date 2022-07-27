@@ -1,0 +1,20 @@
+
+spring:
+  kafka:
+    bootstrap-servers:
+      - https://bootstrap-server-url:443
+    properties:
+      schema.registry.url: http://schema-registry-url:8080/apis/ccompat/v6
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: reg-admin:a1s2d3f4
+      sasl.mechanism: SCRAM-SHA-512
+      sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="perf-test-user" password="vXmnAyWkK20Z";
+    consumer:
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      security.protocol: SASL_SSL
+      enable-auto-commit: true
+logging:
+  level:
+    root: info
